@@ -71,8 +71,8 @@ public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerV
         this.onItemClickListener = itemClickListener;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+    public interface OnItemClickListener<T> {
+        void onItemClick(View view, int position, T element);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -88,7 +88,7 @@ public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerV
         @Override
         public void onClick(View view) {
             if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(view, getAdapterPosition());
+                onItemClickListener.onItemClick(view, getAdapterPosition(), data.get(getAdapterPosition()));
             }
         }
     }

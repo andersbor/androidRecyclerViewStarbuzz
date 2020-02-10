@@ -21,17 +21,15 @@ public class DrinkCategoryActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.drinkCategoryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Drink> drinks = Arrays.asList(Drink.drinks);
+        // List<Drink> drinks = Arrays.asList(Drink.drinks);
         //RecyclerViewSimpleAdapter<Drink> adapter = new RecyclerViewSimpleAdapter<>(drinks);
         DrinkCategoryAdapter adapter = new DrinkCategoryAdapter(Drink.drinks);
         recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new DrinkCategoryAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Log.d("ABDCEF", "position " + position);
+            public void onItemClick(View view, int position, Drink drink) {
+                Log.d("ABDCEF", "position " + position + " item: " + drink);
                 Intent intent = new Intent(DrinkCategoryActivity.this, DrinkActivity.class);
-                //Drink drink = adapter.getItem(position);
-                //int idInt = (int) id; // most important
                 intent.putExtra(DrinkActivity.EXTRA_DRINKNO, position);
                 startActivity(intent);
             }

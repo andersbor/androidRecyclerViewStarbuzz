@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewSimpleAdapter<String> adapter = new RecyclerViewSimpleAdapter<>(/*this,*/ menuOptions);
         adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Log.d("ABCDEF", menuOptions.get(position) + " clicked");
+            public void onItemClick(View view, int position, Object item) {
+                String category = (String) item;
+                Log.d("ABCDEF", category + " clicked");
                 view.setBackgroundColor(Color.GREEN);
                 if (position == 0) { // Drinks
                     Intent intent = new Intent(getBaseContext(), DrinkCategoryActivity.class);

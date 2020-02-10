@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DrinkCategoryAdapter extends RecyclerView.Adapter<DrinkCategoryAdapter.MyViewHolder> {
     private static final String LOG_TAG = "SPEC_ADAPTER";
     private final Drink[] drinks ;
-    private RecyclerViewSimpleAdapter.OnItemClickListener onItemClickListener;
+    private DrinkCategoryAdapter.OnItemClickListener onItemClickListener;
 
     public DrinkCategoryAdapter(Drink[] drinks) {
         this.drinks = drinks;
@@ -53,24 +53,23 @@ public class DrinkCategoryAdapter extends RecyclerView.Adapter<DrinkCategoryAdap
             super(itemView);
             nameView = itemView.findViewById(R.id.drinklist_item_name);
             descriptionView = itemView.findViewById(R.id.drinklist_item_description);
-            //view = itemView.findViewById(viewId);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(view, getAdapterPosition());
+                onItemClickListener.onItemClick(view, getAdapterPosition(), drinks[getAdapterPosition()]);
             }
         }
     }
 
-    void setOnItemClickListener(RecyclerViewSimpleAdapter.OnItemClickListener itemClickListener) {
+    void setOnItemClickListener(DrinkCategoryAdapter.OnItemClickListener itemClickListener) {
         this.onItemClickListener = itemClickListener;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View view, int position, Drink drink);
     }
 
 }
