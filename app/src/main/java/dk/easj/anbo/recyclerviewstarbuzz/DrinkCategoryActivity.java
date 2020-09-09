@@ -21,7 +21,7 @@ public class DrinkCategoryActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.drinkCategoryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // List<Drink> drinks = Arrays.asList(Drink.drinks);
+        //List<Drink> drinks = Arrays.asList(Drink.drinks);
         //RecyclerViewSimpleAdapter<Drink> adapter = new RecyclerViewSimpleAdapter<>(drinks);
         DrinkCategoryAdapter adapter = new DrinkCategoryAdapter(Drink.drinks);
         recyclerView.setAdapter(adapter);

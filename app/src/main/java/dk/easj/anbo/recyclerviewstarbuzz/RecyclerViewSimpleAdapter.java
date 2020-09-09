@@ -16,7 +16,7 @@ public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerV
     private static final String LOG_TAG = "recyclerviewsimpleadapter";
     private final List<T> data;
     //private final LayoutInflater inflater;
-    private OnItemClickListener onItemClickListener;
+    private OnItemClickListener<T> onItemClickListener;
     private final int viewId = View.generateViewId();
 
     public RecyclerViewSimpleAdapter(/*Context context, */List<T> data) {
@@ -67,7 +67,7 @@ public class RecyclerViewSimpleAdapter<T> extends RecyclerView.Adapter<RecyclerV
         return count;
     }
 
-    void setOnItemClickListener(OnItemClickListener itemClickListener) {
+    void setOnItemClickListener(OnItemClickListener<T> itemClickListener) {
         this.onItemClickListener = itemClickListener;
     }
 

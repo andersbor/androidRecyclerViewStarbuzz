@@ -7,17 +7,18 @@
     tools:context=".DrinkActivity">
 
     <ImageView
-        android:id="@+id/photo"
+        android:id="@+id/drinkPhotoImageView"
         android:layout_width="190dp"
-        android:layout_height="190dp" />
+        android:layout_height="190dp"
+        android:contentDescription="some drink" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/drinkNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/drinkDescriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

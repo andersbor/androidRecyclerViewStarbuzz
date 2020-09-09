@@ -19,13 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         menuOptions.add("Drinks");
         menuOptions.add("Food");
         menuOptions.add("Stores");
-        Log.d("ABCDEF", menuOptions.toString());
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.mainMenuRecyclerView);
         // use this setting to improve performance if you know that changes
@@ -34,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         RecyclerViewSimpleAdapter<String> adapter = new RecyclerViewSimpleAdapter<>(/*this,*/ menuOptions);
-        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener<String>() {
             @Override
-            public void onItemClick(View view, int position, Object item) {
-                String category = (String) item;
+            public void onItemClick(View view, int position, String category) {
+                //String category = (String) item;
                 Log.d("ABCDEF", category + " clicked");
                 view.setBackgroundColor(Color.GREEN);
                 if (position == 0) { // Drinks

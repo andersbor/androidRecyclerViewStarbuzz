@@ -25,7 +25,6 @@ public class DrinkCategoryAdapter extends RecyclerView.Adapter<DrinkCategoryAdap
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.drink_category_row, parent, false);
-        //View v = makeView(parent.getContext());
         Log.d(LOG_TAG, v.toString());
         DrinkCategoryAdapter.MyViewHolder vh = new DrinkCategoryAdapter.MyViewHolder(v);
         Log.d(LOG_TAG, "onCreateViewHolder called");

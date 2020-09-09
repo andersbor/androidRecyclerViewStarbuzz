@@ -21,14 +21,14 @@ public class DrinkActivity extends AppCompatActivity {
         Log.d("COFFEE", "DrinkActivity drinkNo " + drinkNo);
         Drink drink = Drink.drinks[drinkNo]; // array is zero-based
 
-        ImageView photo = findViewById(R.id.photo);
+        ImageView photo = findViewById(R.id.drinkPhotoImageView);
         photo.setImageResource(drink.getImageResourceId());
         photo.setContentDescription(drink.getName());
 
-        TextView name = findViewById(R.id.name);
+        TextView name = findViewById(R.id.drinkNameTextView);
         name.setText(drink.getName());
 
-        TextView description = findViewById(R.id.description);
+        TextView description = findViewById(R.id.drinkDescriptionTextView);
         description.setText(drink.getDescription());
     }
 }
